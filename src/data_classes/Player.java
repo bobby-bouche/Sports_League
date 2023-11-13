@@ -34,8 +34,6 @@ public class Player {
 	private static int DEFAULT_PLAYER_SKL = 0;
 	private static int DEFAULT_PLAYER_SHT = 0;
 	
-	private static double DEFAULT_PLAYER_RATING = 0.0;
-	
 	
 	// initializer
 	{
@@ -48,8 +46,6 @@ public class Player {
 		setDribbling(DEFAULT_PLAYER_DBL);
 		setSkill(DEFAULT_PLAYER_SKL);
 		setShooting(DEFAULT_PLAYER_SHT);
-		
-		setMatchRating(DEFAULT_PLAYER_RATING);
 	}
 	
 	
@@ -174,13 +170,4 @@ public class Player {
 		this.shooting = shooting;
 	}
 
-	public double getMatchRating() {
-		return matchRating;
-	}
-
-	public void setMatchRating(double matchRating) {
-		this.matchRating = matchRating;
-	}
-	
-	
 }
