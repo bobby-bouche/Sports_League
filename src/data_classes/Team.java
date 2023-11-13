@@ -1,11 +1,12 @@
 package data_classes;
 
-import java.util.ArrayList;
+
+import java.util.Map;
 
 public class Team {
 	
 	// team fields
-	private ArrayList<Player> squad;
+	private Map<String, Player> squad;
 	
 	private int gamesPlayed;
 	private int points;
