@@ -1,7 +1,5 @@
 package data_classes;
 
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +10,6 @@ public class Team {
 	
 	// team fields
 	private static Map<Integer, Player> squad;
-	private static ArrayList<String> players;
 
 	private String name;
 	private String location;
@@ -42,20 +39,14 @@ public class Team {
 	public Team() {
 		super();
 		squad = new HashMap<Integer, Player>();
-		players = new ArrayList<String>();
 	}
 	
 	public Team(String name, String location) {
 		super();
-		this.name = name;
+		this.name     = name;
 		this.location = location;
-		setGamesPlayed(gamesPlayed);
-		setPoints(points);
-		setGoalsFor(goalsFor);
-		setGoalsAgainst(goalsAgainst);
 		
 		squad = new HashMap<Integer, Player>();
-		players = new ArrayList<String>();
 	}
 
 
@@ -99,7 +90,8 @@ public class Team {
 		this.goalsAgainst = goalsAgainst;
 	}
 	
-	// method to add players to squad
+	
+	// method to add player to squad
 	public void addPlayer(Player player) {
 		
 		if(squad.containsKey(player.getPlayerID())) {
@@ -108,6 +100,18 @@ public class Team {
 		else {
 			squad.put(player.getPlayerID(), player);
 			JOptionPane.showInternalMessageDialog(null, "Player sucessfully registered");
+		}
+	}
+	
+	// method to remove player to squad
+	public void removePlayer(Player player) {
+		
+		if(squad.containsKey(player.getPlayerID())) {
+			squad.remove(player.getPlayerID());
+			JOptionPane.showInternalMessageDialog(null, "Player sucessfully unregistered");
+		}
+		else {
+			JOptionPane.showInternalMessageDialog(null, "Invalid playerID");
 		}
 	}
 	
