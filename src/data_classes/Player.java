@@ -19,10 +19,7 @@ public class Player {
 	private int skill;
 	private int shooting;
 	
-	// match rating
-	private double matchRating;
-	
-	
+
 	// symbolic constants
 	private static int DEFAULT_TEAM_ID = 0;
 	
@@ -38,14 +35,14 @@ public class Player {
 	// initializer
 	{
 		teamID = DEFAULT_TEAM_ID;
-
-		setPhysical(DEFAULT_PLAYER_PHY);
-		setMentality(DEFAULT_PLAYER_MEN);
-		setTackling(DEFAULT_PLAYER_TKL);
-		setPassing(DEFAULT_PLAYER_PAS);
-		setDribbling(DEFAULT_PLAYER_DBL);
-		setSkill(DEFAULT_PLAYER_SKL);
-		setShooting(DEFAULT_PLAYER_SHT);
+		
+		physical   = DEFAULT_PLAYER_PHY;
+		mentality  = DEFAULT_PLAYER_MEN;
+		tackling   = DEFAULT_PLAYER_TKL;
+		passing    = DEFAULT_PLAYER_PAS;
+		dribbling  = DEFAULT_PLAYER_DBL;
+		skill      = DEFAULT_PLAYER_SKL;
+		shooting   = DEFAULT_PLAYER_SHT;
 	}
 	
 	
@@ -72,6 +69,10 @@ public class Player {
 	// getters and setters
 	public int getPlayerID() {
 		return playerID;
+	}
+	
+	public void setPlayerID(int playerID) {
+		this.playerID = playerID;
 	}
 
 	public String getFname() {
