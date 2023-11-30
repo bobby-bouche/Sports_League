@@ -11,27 +11,28 @@ public class Team {
 	// team fields
 	private static Map<Integer, Player> squad;
 
+	private int teamID;
 	private String name;
-	private String location;
-	private int gamesPlayed;
-	private int points;
-	private int goalsFor;
-	private int goalsAgainst;
+//	private String location;
+//	private int gamesPlayed;
+//	private int points;
+//	private int goalsFor;
+//	private int goalsAgainst;
 	
 	
 	// symbolic constants
-	private static int DEFAULT_GAMES_PLAYED  = 0;
-	private static int DEFAULT_POINTS 		 = 0;
-	private static int DEFAULT_GOALSFOR 	 = 0;
-	private static int DEFAULT_GOALSAGAINST  = 0;
+//	private static int DEFAULT_GAMES_PLAYED  = 0;
+//	private static int DEFAULT_POINTS 		 = 0;
+//	private static int DEFAULT_GOALSFOR 	 = 0;
+//	private static int DEFAULT_GOALSAGAINST  = 0;
 	
 	
 	// initializer
 	{
-		gamesPlayed  = DEFAULT_GAMES_PLAYED;
-		points       = DEFAULT_POINTS;
-		goalsFor     = DEFAULT_GOALSFOR;
-		goalsAgainst = DEFAULT_GOALSAGAINST;
+//		gamesPlayed  = DEFAULT_GAMES_PLAYED;
+//		points       = DEFAULT_POINTS;
+//		goalsFor     = DEFAULT_GOALSFOR;
+//		goalsAgainst = DEFAULT_GOALSAGAINST;
 	}
 	
 	
@@ -41,10 +42,10 @@ public class Team {
 		squad = new HashMap<Integer, Player>();
 	}
 	
-	public Team(String name, String location) {
+	public Team(int teamID, String name) {
 		super();
+		this.setTeamID(teamID);
 		this.name     = name;
-		this.location = location;
 		
 		squad = new HashMap<Integer, Player>();
 	}
@@ -53,42 +54,50 @@ public class Team {
 	public String getName() {
 		return name;
 	}
-
-	public String getLocation() {
-		return location;
+	
+	public int getTeamID() {
+		return teamID;
 	}
 
-	public int getGamesPlayed() {
-		return gamesPlayed;
+	public void setTeamID(int teamID) {
+		this.teamID = teamID;
 	}
+	
+//	public String getLocation() {
+//	return location;
+//  }
 
-	public void setGamesPlayed(int gamesPlayed) {
-		this.gamesPlayed = gamesPlayed;
-	}
-
-	public int getPoints() {
-		return points;
-	}
-
-	public void setPoints(int points) {
-		this.points = points;
-	}
-
-	public int getGoalsFor() {
-		return goalsFor;
-	}
-
-	public void setGoalsFor(int goalsFor) {
-		this.goalsFor = goalsFor;
-	}
-
-	public int getGoalsAgainst() {
-		return goalsAgainst;
-	}
-
-	public void setGoalsAgainst(int goalsAgainst) {
-		this.goalsAgainst = goalsAgainst;
-	}
+//	public int getGamesPlayed() {
+//		return gamesPlayed;
+//	}
+//
+//	public void setGamesPlayed(int gamesPlayed) {
+//		this.gamesPlayed = gamesPlayed;
+//	}
+//
+//	public int getPoints() {
+//		return points;
+//	}
+//
+//	public void setPoints(int points) {
+//		this.points = points;
+//	}
+//
+//	public int getGoalsFor() {
+//		return goalsFor;
+//	}
+//
+//	public void setGoalsFor(int goalsFor) {
+//		this.goalsFor = goalsFor;
+//	}
+//
+//	public int getGoalsAgainst() {
+//		return goalsAgainst;
+//	}
+//
+//	public void setGoalsAgainst(int goalsAgainst) {
+//		this.goalsAgainst = goalsAgainst;
+//	}
 	
 	
 	// method to add player to squad
