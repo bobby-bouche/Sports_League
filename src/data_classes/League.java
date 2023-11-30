@@ -8,12 +8,13 @@ public class League {
 	
 	// league fields
 	private int league_id;
+	private String name;
 	
 	private static ArrayList<Team> leagueRoster;
 	
 	
 	// connstructor
-	public League(int leagueID) {
+	public League(int leagueID, String name) {
 		super();
 		this.league_id = leagueID;
 		leagueRoster = new ArrayList<>();
@@ -27,6 +28,10 @@ public class League {
 	
 	public int getLeague_id() {
 		return league_id;
+	}
+	
+	public String getLeagueName() {
+		return name;
 	}
 	
 	
