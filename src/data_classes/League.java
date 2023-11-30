@@ -35,6 +35,7 @@ public class League {
 		}
 	}
 	
+	// method to remove team from league
 	public void removeTeam(Team team) {
 		
 		if(leagueRoster.contains(team)) {

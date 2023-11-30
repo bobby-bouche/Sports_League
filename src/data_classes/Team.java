@@ -13,35 +13,9 @@ public class Team {
 
 	private int teamID;
 	private String name;
-//	private String location;
-//	private int gamesPlayed;
-//	private int points;
-//	private int goalsFor;
-//	private int goalsAgainst;
 	
 	
-	// symbolic constants
-//	private static int DEFAULT_GAMES_PLAYED  = 0;
-//	private static int DEFAULT_POINTS 		 = 0;
-//	private static int DEFAULT_GOALSFOR 	 = 0;
-//	private static int DEFAULT_GOALSAGAINST  = 0;
-	
-	
-	// initializer
-	{
-//		gamesPlayed  = DEFAULT_GAMES_PLAYED;
-//		points       = DEFAULT_POINTS;
-//		goalsFor     = DEFAULT_GOALSFOR;
-//		goalsAgainst = DEFAULT_GOALSAGAINST;
-	}
-	
-	
-	// constructors
-	public Team() {
-		super();
-		squad = new HashMap<Integer, Player>();
-	}
-	
+	// constructor
 	public Team(int teamID, String name) {
 		super();
 		this.setTeamID(teamID);
@@ -51,6 +25,7 @@ public class Team {
 	}
 
 
+	// getters and setters
 	public String getName() {
 		return name;
 	}
@@ -62,42 +37,6 @@ public class Team {
 	public void setTeamID(int teamID) {
 		this.teamID = teamID;
 	}
-	
-//	public String getLocation() {
-//	return location;
-//  }
-
-//	public int getGamesPlayed() {
-//		return gamesPlayed;
-//	}
-//
-//	public void setGamesPlayed(int gamesPlayed) {
-//		this.gamesPlayed = gamesPlayed;
-//	}
-//
-//	public int getPoints() {
-//		return points;
-//	}
-//
-//	public void setPoints(int points) {
-//		this.points = points;
-//	}
-//
-//	public int getGoalsFor() {
-//		return goalsFor;
-//	}
-//
-//	public void setGoalsFor(int goalsFor) {
-//		this.goalsFor = goalsFor;
-//	}
-//
-//	public int getGoalsAgainst() {
-//		return goalsAgainst;
-//	}
-//
-//	public void setGoalsAgainst(int goalsAgainst) {
-//		this.goalsAgainst = goalsAgainst;
-//	}
 	
 	
 	// method to add player to squad
