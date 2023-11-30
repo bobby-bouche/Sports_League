@@ -13,13 +13,15 @@ public class Team {
 
 	private int teamID;
 	private String name;
+	private int leagueID;
 	
 	
 	// constructor
-	public Team(int teamID, String name) {
+	public Team(int teamID, String name, int leagueID) {
 		super();
-		this.setTeamID(teamID);
+		this.teamID = teamID;
 		this.name     = name;
+		this.setLeagueID(leagueID);
 		
 		squad = new HashMap<Integer, Player>();
 	}
@@ -36,6 +38,14 @@ public class Team {
 
 	public void setTeamID(int teamID) {
 		this.teamID = teamID;
+	}
+	
+	public int getLeagueID() {
+		return leagueID;
+	}
+
+	public void setLeagueID(int leagueID) {
+		this.leagueID = leagueID;
 	}
 	
 	
@@ -62,6 +72,5 @@ public class Team {
 			JOptionPane.showInternalMessageDialog(null, "Invalid playerID");
 		}
 	}
-	
 
 }

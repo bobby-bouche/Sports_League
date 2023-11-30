@@ -7,19 +7,26 @@ import javax.swing.JOptionPane;
 public class League {
 	
 	// league fields
+	private int league_id;
+	
 	private static ArrayList<Team> leagueRoster;
 	
 	
 	// connstructor
-	public League() {
+	public League(int leagueID) {
 		super();
+		this.league_id = leagueID;
 		leagueRoster = new ArrayList<>();
 	}
 
 
-	// getter
+	// getters
 	public ArrayList<Team> getLeagueRoster() {
 		return leagueRoster;
+	}
+	
+	public int getLeague_id() {
+		return league_id;
 	}
 	
 	
