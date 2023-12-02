@@ -1,6 +1,8 @@
 package data_classes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
@@ -9,7 +11,7 @@ import javax.swing.JOptionPane;
 public class Team {
 	
 	// team fields
-	private static Map<Integer, Player> squad;
+	private List<Player> squad;
 
 	private int teamID;
 	private String name;
@@ -23,7 +25,7 @@ public class Team {
 		this.name     = name;
 		this.setLeagueID(leagueID);
 		
-		squad = new HashMap<Integer, Player>();
+		squad = new ArrayList<Player>();
 	}
 
 
@@ -52,11 +54,11 @@ public class Team {
 	// method to add player to squad
 	public void addPlayer(Player player) {
 		
-		if(squad.containsKey(player.getPlayerID())) {
+		if(squad.contains(player)) {
 			JOptionPane.showInternalMessageDialog(null, "Player already registered to this squad");
 		}
 		else {
-			squad.put(player.getPlayerID(), player);
+			squad.add(player);
 			JOptionPane.showInternalMessageDialog(null, "Player sucessfully registered");
 		}
 	}
@@ -64,8 +66,8 @@ public class Team {
 	// method to remove player to squad
 	public void removePlayer(Player player) {
 		
-		if(squad.containsKey(player.getPlayerID())) {
-			squad.remove(player.getPlayerID());
+		if(squad.contains(player)) {
+			squad.remove(player);
 			JOptionPane.showInternalMessageDialog(null, "Player sucessfully unregistered");
 		}
 		else {
