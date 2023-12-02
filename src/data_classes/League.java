@@ -17,6 +17,7 @@ public class League {
 	public League(int leagueID, String name) {
 		super();
 		this.league_id = leagueID;
+		this.name = name;
 		leagueRoster = new ArrayList<>();
 	}
 
