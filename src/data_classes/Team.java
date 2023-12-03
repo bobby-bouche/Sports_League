@@ -1,9 +1,7 @@
 package data_classes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.swing.JOptionPane;
 
@@ -11,11 +9,11 @@ import javax.swing.JOptionPane;
 public class Team {
 	
 	// team fields
-	private List<Player> squad;
-
 	private int teamID;
 	private String name;
 	private int leagueID;
+	
+	private List<Player> squad;
 	
 	
 	// constructor

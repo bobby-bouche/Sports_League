@@ -8,20 +8,25 @@ public class Driver {
 	
 	
 	// create database connection
-	void createConnection() {
+	Connection ConnectDB() {
+		
+		Connection con = null;
 		
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_league_db","root", "Ronaldo");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_league_db","root", "Ronaldo");
 			
 			System.out.println("database connection success..\n");
+			
 		}
 		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return con;
+		
 	}
 
 	
@@ -34,7 +39,7 @@ public class Driver {
 			
 			try {
 			
-				driver.createConnection();
+				driver.ConnectDB();
 				
 			}catch(NullPointerException e) {
 				System.out.println(e);
