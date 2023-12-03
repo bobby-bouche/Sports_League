@@ -48,6 +48,14 @@ public class Team {
 		this.leagueID = leagueID;
 	}
 	
+	public List<String> getSquad(){
+		List<String> players = new ArrayList<>();
+		for(Player p : squad) {
+			players.add(p.getLname());
+		}
+		return players;
+	}
+	
 	
 	// method to add player to squad
 	public void addPlayer(Player player) {
@@ -72,5 +80,5 @@ public class Team {
 			JOptionPane.showInternalMessageDialog(null, "Invalid playerID");
 		}
 	}
-
+	
 }

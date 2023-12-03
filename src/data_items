@@ -1,0 +1,71 @@
+//	private String location;
+//	private int gamesPlayed;
+//	private int points;
+//	private int goalsFor;
+//	private int goalsAgainst;
+	
+	
+	// symbolic constants
+//	private static int DEFAULT_GAMES_PLAYED  = 0;
+//	private static int DEFAULT_POINTS 		 = 0;
+//	private static int DEFAULT_GOALSFOR 	 = 0;
+//	private static int DEFAULT_GOALSAGAINST  = 0;
+	
+	
+	// initializer
+	{
+//		gamesPlayed  = DEFAULT_GAMES_PLAYED;
+//		points       = DEFAULT_POINTS;
+//		goalsFor     = DEFAULT_GOALSFOR;
+//		goalsAgainst = DEFAULT_GOALSAGAINST;
+	}
+	
+	
+	
+	
+	
+	
+	public class Player {
+	
+	// player fields
+	private int playerID;
+	private String fname;
+	private String lname;
+	private int age;
+	private String position;
+	private int teamID;
+	
+//	// player attribute fields
+//	private int physical;
+//	private int mentality;
+//	private int tackling;
+//	private int passing;
+//	private int dribbling;
+//	private int skill;
+//	private int shooting;
+	
+
+	// symbolic constants
+	private static int DEFAULT_TEAM_ID = 0;
+	
+//	private static int DEFAULT_PLAYER_PHY = 0;
+//	private static int DEFAULT_PLAYER_MEN = 0;
+//	private static int DEFAULT_PLAYER_TKL = 0;
+//	private static int DEFAULT_PLAYER_PAS = 0;
+//	private static int DEFAULT_PLAYER_DBL = 0;
+//	private static int DEFAULT_PLAYER_SKL = 0;
+//	private static int DEFAULT_PLAYER_SHT = 0;
+	
+	
+	// initializer
+	{
+		teamID = DEFAULT_TEAM_ID;
+		
+//		physical   = DEFAULT_PLAYER_PHY;
+//		mentality  = DEFAULT_PLAYER_MEN;
+//		tackling   = DEFAULT_PLAYER_TKL;
+//		passing    = DEFAULT_PLAYER_PAS;
+//		dribbling  = DEFAULT_PLAYER_DBL;
+//		skill      = DEFAULT_PLAYER_SKL;
+//		shooting   = DEFAULT_PLAYER_SHT;
+	}

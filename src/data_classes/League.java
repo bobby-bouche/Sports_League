@@ -1,6 +1,7 @@
 package data_classes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -10,7 +11,7 @@ public class League {
 	private int league_id;
 	private String name;
 	
-	private static ArrayList<Team> leagueRoster;
+	private ArrayList<Team> leagueRoster;
 	
 	
 	// connstructor
@@ -35,6 +36,24 @@ public class League {
 		return name;
 	}
 	
+//	public List<String> getLeagueRoster(){
+//		List<String> teams = new ArrayList<>();
+//		for(Team t : leagueRoster) {
+//			teams.add(t.getName());
+//		}
+//		return teams;
+//	}
+//	
+//	public List<Team> getLeagueRoster(){
+//		List<Team> teams = new ArrayList<>();
+//		for(Team t : leagueRoster) {
+//			teams.add(t);
+//		}
+//		return teams;
+//	}
+	
+	
+		
 	
 	//method to add team to league
 	public void addTeam(Team team) {
