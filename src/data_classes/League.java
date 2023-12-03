@@ -1,8 +1,6 @@
 package data_classes;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
 
 public class League {

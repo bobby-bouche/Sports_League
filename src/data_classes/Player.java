@@ -85,6 +85,10 @@ public class Player {
 	public int getTeamID() {
 		return teamID;
 	}
+	
+	public void setTeamID(int value) {
+		this.teamID = value;
+	}
 
 
 }
