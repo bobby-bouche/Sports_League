@@ -16,7 +16,12 @@ public class Team {
 	private List<Player> squad;
 	
 	
-	// constructor
+	// constructors
+	public Team() {
+		super();
+		squad = new ArrayList<Player>();
+	}
+	
 	public Team(int teamID, String name, int leagueID) {
 		super();
 		this.teamID = teamID;
@@ -30,6 +35,10 @@ public class Team {
 	// getters and setters
 	public String getName() {
 		return name;
+	}
+	
+	public void setName(String value) {
+		this.name = value;
 	}
 	
 	public int getTeamID() {

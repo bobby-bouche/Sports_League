@@ -12,7 +12,12 @@ public class League {
 	private ArrayList<Team> leagueRoster;
 	
 	
-	// connstructor
+	// connstructors
+	public League() {
+		super();
+		leagueRoster = new ArrayList<>();
+	}
+	
 	public League(int leagueID, String name) {
 		super();
 		this.league_id = leagueID;
@@ -21,7 +26,7 @@ public class League {
 	}
 
 
-	// getters
+	// getters and setters
 	public ArrayList<Team> getLeagueRoster() {
 		return leagueRoster;
 	}
@@ -30,8 +35,16 @@ public class League {
 		return league_id;
 	}
 	
+	public void setLeague_id(int value) {
+		this.league_id = value;
+	}
+	
 	public String getLeagueName() {
 		return name;
+	}
+	
+	public void setLeagueName(String value) {
+		this.name = value;
 	}
 	
 //	public List<String> getLeagueRoster(){
