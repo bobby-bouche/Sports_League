@@ -32,10 +32,10 @@ public class Driver {
 	}
 	
 	
-	// method to launch management system
-	// this is a test fror now
-	// this method will house the bulk of operations that will be written
-	void runManagementSystem() {
+	// method to launch text management system
+	// this is just a test for now to check loaded data
+	// this method will run the methods and procedures needed for a text based system
+	void runTextBasedSystem() {
 		for(League l : leagues) {
 			for(Team t : teams) {
 				if(l.getLeague_id() == t.getLeagueID()) {
@@ -50,6 +50,14 @@ public class Driver {
 	}
 	
 	
+	// method to launch GUI management system
+	void runGUIBasedSystem() {
+		
+		// this method will run the frames needed for a GUI based system
+		
+	}
+	
+	
 	// main method
 	public static void main(String[] args) {
 		
@@ -59,7 +67,7 @@ public class Driver {
 		try {
 		
 	     	driver.loadDatabase();
-			driver.runManagementSystem();
+			driver.runTextBasedSystem();
 
 		}
 		catch(NullPointerException e) {
