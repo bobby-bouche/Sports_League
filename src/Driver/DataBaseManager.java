@@ -12,7 +12,7 @@ import data_classes.League;
 import data_classes.Player;
 import data_classes.Team;
 
-public class LeagueManagementSystem {
+public class DataBaseManager {
 	
 	// LeagueManagementSystem fields
 	private static List<Player> players;
@@ -20,8 +20,28 @@ public class LeagueManagementSystem {
 	private static List<League> leagues;
 	
 	
+	// constructor
+	public DataBaseManager() {
+		super();
+	}
+	
+	
+	// getters
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public List<Team> getTeams() {
+		return teams;
+	}
+
+	public List<League> getLeagues() {
+		return leagues;
+	}
+	
+	
 	// method to create database connection, retrieve data and populate static data lists
-	void ConnectDB() {
+	void LoadDataBase() {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -65,12 +85,13 @@ public class LeagueManagementSystem {
 		return players;
 	}
 	
+	
 	// method to retrieve team data from database
 	private static List<Team> retrieveTeams(Connection con, List<Player> players) throws SQLException{
 		
 		List<Team> teams = new ArrayList<>();
-		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM TEAM");
+		Statement stmt   = con.createStatement();
+		ResultSet rs     = stmt.executeQuery("SELECT * FROM TEAM");
 		
 		while(rs.next()) {
 			
@@ -88,7 +109,8 @@ public class LeagueManagementSystem {
 		}
 		return teams;	
 	}
-	
+
+
 	// method to retrieve league data from database
 	private static List<League> retrieveLeagues(Connection con, List<Team> teams) throws SQLException {
 		
