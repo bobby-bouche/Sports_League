@@ -12,16 +12,16 @@ import data_classes.League;
 import data_classes.Player;
 import data_classes.Team;
 
-public class DataBaseManager {
+public class DatabaseManager {
 	
 	// LeagueManagementSystem fields
-	private static List<Player> players;
-	private static List<Team>   teams;
-	private static List<League> leagues;
+	private List<Player> players;
+	private List<Team>   teams;
+	private List<League> leagues;
 	
 	
 	// constructor
-	public DataBaseManager() {
+	public DatabaseManager() {
 		super();
 	}
 	
@@ -41,7 +41,7 @@ public class DataBaseManager {
 	
 	
 	// method to create database connection, retrieve data and populate static data lists
-	void LoadDataBase() {
+	void retrieveData() {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
