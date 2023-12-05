@@ -20,7 +20,7 @@ public class LeagueManagementSystem {
 	private static List<League> leagues;
 	
 	
-	// create database connection
+	// method to create database connection, retrieve data and populate static data lists
 	void ConnectDB() {
 		
 		try {
