@@ -33,27 +33,29 @@ public class Driver {
 	
 	
 	// method to launch text management system
-	// this is just a test for now to check loaded data
-	// this method will run the methods and procedures needed for a text based system
 	void runTextBasedSystem() {
-		for(League l : leagues) {
-			for(Team t : teams) {
-				if(l.getLeague_id() == t.getLeagueID()) {
-					for(Player p : players) {
-						if(p.getTeamID() == t.getTeamID()) {
-							System.out.println(p.getLname() + " " + t.getName() + " " + l.getLeagueName());
-						}
-					}
-				}
-			}
-		}	
+		
+		int choice;
+		boolean proceed;
+		
+		while(proceed) {
+			
+			System.out.println("------Sports League Management System------\n"
+							   + "Main Menu\n------------------\n"
+							   + "1. players"
+							   + "2. Teams"
+							   + "3. Leagues"
+							   + "4. Exit");
+			
+			choice = 
+		}
 	}
 	
 	
 	// method to launch GUI management system
 	void runGUIBasedSystem() {
 		
-		// this method will run the frames needed for a GUI based system
+		// TODO this method will run the frames needed for a GUI based system
 		
 	}
 	
