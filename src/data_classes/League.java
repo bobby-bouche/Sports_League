@@ -74,7 +74,7 @@ public class League {
 		}
 		else {
 			leagueRoster.add(team);
-			JOptionPane.showInternalMessageDialog(null, "Team successfully registered to league");
+			//JOptionPane.showInternalMessageDialog(null, "Team successfully registered to league");
 		}
 	}
 	

@@ -19,14 +19,14 @@ public class Keyboard {
 	// method to validate integer input from user
 	public int readInteger(String promptMsg, String errorMsg, int low, int high) {
 		
-		int num        = 0;
-		boolean valid  = false;
+		int num = 0;
+		boolean valid = false;
 		String strInput;
 		
 		while(valid == false) {
 			
 			System.out.println(promptMsg);
-			input.nextLine();
+			//input.nextLine();
 			strInput = input.nextLine();
 			
 			try {
@@ -58,7 +58,7 @@ public class Keyboard {
 			strInput = input.nextLine();
 			
 			try {
-				if(!(strInput.equals(null)) && strInput.matches("^[a-zA-Z]*$")) {
+				if(!(strInput.equals(null)) && strInput.matches("^[a-z A-Z]*$")) {
 					valid = true;
 				}
 				else {
@@ -71,8 +71,6 @@ public class Keyboard {
 		}
 		return strInput;
 	}
-	
-	
-	
+
 
 }

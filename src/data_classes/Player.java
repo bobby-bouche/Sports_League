@@ -90,5 +90,11 @@ public class Player {
 		this.teamID = value;
 	}
 
+	@Override
+	public String toString() {
+		return "Player [playerID=" + playerID + ", fname=" + fname + ", lname=" + lname + ", age=" + age + ", position="
+				+ position + ", teamID=" + teamID + "]";
+	}
+
 
 }

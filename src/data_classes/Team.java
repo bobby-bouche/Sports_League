@@ -66,6 +66,12 @@ public class Team {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Team [teamID=" + teamID + ", name=" + name + ", leagueID=" + leagueID + ", squad=" + squad + "]";
+	}
+	
+	
 	// method to add player to squad
 	public void addPlayer(Player player) {
 		
@@ -74,10 +80,11 @@ public class Team {
 		}
 		else {
 			squad.add(player);
-			JOptionPane.showInternalMessageDialog(null, "Player sucessfully registered");
+			//JOptionPane.showInternalMessageDialog(null, "Player sucessfully registered");
 		}
 	}
 	
+
 	// method to remove player to squad
 	public void removePlayer(Player player) {
 		
