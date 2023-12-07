@@ -107,42 +107,35 @@ public class Driver {
 			
 				case 1:
 					String prompt = "Enter player name: ";
-					String error = "player does not exists in database";
-					strInput = kb.readString(prompt, error);
-					
+					String error  = "player does not exists in database";
+					strInput = kb.readString(prompt, error);	
+				
 					for(Player p : players) {
-						if(!(strInput.equalsIgnoreCase(p.getLname()))) {
+						if(strInput.equalsIgnoreCase(p.getLname())) {
 							System.out.println(p.toString() + "\n");
 							proceed = false;
 							break;
 						}
-						else {
-							System.out.println("No players with name: " + strInput + " in database");
-							
-						}
-						
 					}
+					break;
 					
-					
-					case 2:
+				case 2:
 					String teamPromptMsg = "Enter team name: ";
-					String teamErrorMsg = "team does not exist in database";
+					String teamErrorMsg  = "team does not exist in database";
 					strInput = kb.readString(teamPromptMsg, teamErrorMsg);
+					
 					for(Team t : teams) {
 						if(strInput.equalsIgnoreCase(t.getName())) {
 							System.out.println(t.toString() + "\n");
 							proceed = false;
 							break;
 						}
-						else {
-							System.out.println("No team with name: " + strInput + " in database");
-							break;
-						}
 					}
-					
+					break;
+						
 				case 3:
 					String leaguePromptMsg = "Enter league name: ";
-					String leagueErrorMsg = "league does not exist in database";
+					String leagueErrorMsg  = "league does not exist in database";
 					strInput = kb.readString(leaguePromptMsg, leagueErrorMsg);
 					for(League l : leagues) {
 						if(strInput.equalsIgnoreCase(l.getLeagueName())) {
@@ -150,11 +143,8 @@ public class Driver {
 							proceed = false;
 							break;
 						}
-						else {
-							System.out.println("No league with name: " + strInput + " in database");
-							break;
-						}
 					}
+					break;
 					
 				case 4:
 					proceed = false;
@@ -195,6 +185,7 @@ public class Driver {
 		
 	     	driver.loadDatabase();
 			driver.runTextBasedSystem();
+	     	//System.out.println(players);
 	
 		}
 		catch(NullPointerException e) {

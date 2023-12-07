@@ -58,7 +58,7 @@ public class Keyboard {
 			strInput = input.nextLine();
 			
 			try {
-				if(!(strInput.equals(null)) && strInput.matches("^[a-z A-Z]*$")) {
+				if(!(strInput.equals(null)) && strInput.matches("^[a-z A-Z 0-9]*$")) {
 					valid = true;
 				}
 				else {
