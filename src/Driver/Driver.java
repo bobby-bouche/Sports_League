@@ -152,9 +152,7 @@ public class Driver {
 					
 				default:
 					System.out.println(errorMsg);
-					break;
-
-					
+					break;	
 			}
 		}
 	}
@@ -162,6 +160,61 @@ public class Driver {
 	
 	void runRegistrationMenu() {
 		
+		int choice;
+		boolean proceed = true;
+		String strInput;
+		
+		String promptMsg = "Make a selection:\n";
+		String errorMsg  = "Invalid entry, enter an integer value in the range (1-7)\n";
+		
+		while(proceed) {
+			
+			System.out.println(
+		            " ------------Registration Menu------------\n"
+		            + "1. Register Player\n"
+		            + "2. Register Team\n"
+		            + "3. Register League\n"
+		            + "4. Remove Player\n"
+		            + "5. Remove Team\n"
+		            + "6. Remove League\n"
+		            + "7. Back\n");
+			
+			choice = kb.readInteger(promptMsg, errorMsg, 1, 7);
+			
+			switch(choice) {
+			
+				case 1:
+					String prompt = "Enter player name: ";
+					String error  = "Invalid entry\n";
+					
+					strInput = kb.readString(prompt, error);
+					
+					
+				case 2:
+					
+					
+				case 3:
+					
+					
+				case 4:
+					
+					
+				case 5:
+					
+					
+				case 6:
+					
+					
+				case 7:
+					proceed = false;
+					break;
+					
+					
+				default:
+					
+				
+			}
+		}	
 	}
 	
 	

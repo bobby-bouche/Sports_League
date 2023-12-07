@@ -135,4 +135,36 @@ public class DatabaseManager {
 	}
 	
 	
+	// method to add player to database
+	void registerPlayer() {
+		
+		Player player = new Player();
+		
+	}
+	
+	
+	void registerTeam() {
+		// TODO
+	}
+	
+	
+	void registerLeague() {
+		//TODO
+	}
+	
+	
+	void removePlayer(int playerID, String name) {
+		//TODO
+	}
+	
+	
+	void removeTeam(int teamID) {
+		//TODO
+	}
+	
+	
+	void removeLeague(int leagueID) {
+		//TODO
+	}
+	
 }
