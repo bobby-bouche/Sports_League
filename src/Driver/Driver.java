@@ -184,12 +184,8 @@ public class Driver {
 			switch(choice) {
 			
 				case 1:
-					String prompt = "Enter player name: ";
-					String error  = "Invalid entry\n";
-					
-					strInput = kb.readString(prompt, error);
-					
-					
+					dbManager.registerNewPlayer();
+			
 				case 2:
 					
 					

@@ -2,6 +2,8 @@ package InputValidation;
 
 import java.util.Scanner;
 
+import data_classes.Player;
+
 public class Keyboard {
 	
 	// Keyboard fields
@@ -45,6 +47,29 @@ public class Keyboard {
 		return num;
 	}
 	
+	public int readInteger(String promptMsg, String errorMsg) {
+		
+		int num = 0;
+		boolean valid = false;
+		String strInput;
+		
+		while(valid == false) {
+			
+			System.out.println(promptMsg);
+			//input.nextLine();
+			strInput = input.nextLine();
+			
+			try {
+				num = Integer.parseInt(strInput);
+				valid = true;
+			}
+			catch(NumberFormatException e) {
+				System.out.println(errorMsg);
+			}
+		}
+		return num;
+	}
+	
 	
 	// method to validate String input from user
 	public String readString(String promptMsg, String errorMsg) {
@@ -71,6 +96,7 @@ public class Keyboard {
 		}
 		return strInput;
 	}
+	
 
 
 }
