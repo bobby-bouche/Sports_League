@@ -1,9 +1,6 @@
 package Driver;
 
 import java.util.List;
-
-import javax.swing.JOptionPane;
-
 import InputValidation.Keyboard;
 import data_classes.League;
 import data_classes.Player;
@@ -29,8 +26,8 @@ public class Driver {
 	
 
 	// method to load data from database and populate static class lists
-	void loadDatabase() {
-		
+	void loadDatabase(){
+	
 		dbManager.retrieveData();
 		leagues = dbManager.getLeagues();
 		teams   = dbManager.getTeams();
@@ -187,10 +184,10 @@ public class Driver {
 					dbManager.registerNewPlayer();
 			
 				case 2:
-					
+					dbManager.registerNewTeam();
 					
 				case 3:
-					
+					dbManager.registerNewLeague();
 					
 				case 4:
 					

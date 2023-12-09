@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
 
 import InputValidation.Keyboard;
 import data_classes.League;
@@ -103,6 +102,8 @@ public class DatabaseManager {
 			
 			players.add(player);
 		}
+		stmt.close();
+		rs.close();
 		return players;
 	}
 	
@@ -128,6 +129,8 @@ public class DatabaseManager {
 			}
 			teams.add(team);
 		}
+		stmt.close();
+		rs.close();
 		return teams;	
 	}
 
@@ -152,6 +155,8 @@ public class DatabaseManager {
 			}
 			leagues.add(league);
 		}
+		stmt.close();
+		rs.close();
 		return leagues;
 	}
 	
@@ -185,50 +190,97 @@ public class DatabaseManager {
 			ps1.execute();
 			ps1.close();
 			
-			PreparedStatement ps2 = connection.prepareStatement("SELECT * FROM PLAYER WHERE FIRST_NAME = ? AND LAST_NAME = ? AND AGE = ? AND POSITION = ? AND TEAM_ID = ?");
-			ps2.setString(1, fname);
-			ps2.setString(2, lname);
-			ps2.setInt(3, age);
-			ps2.setString(4, position);
-			ps2.setInt(5, teamID);
-			ResultSet rs = ps2.executeQuery();
-			
-			while(rs.next()) {
-				
-				int playerID = rs.getInt("player_id");
-				player.setPlayerID(playerID);
-			}
-			
-			players.add(player);
 			System.out.println("player " + player.getLname() + " is now registered");
-			
+			connection.close();
+	
 		} catch (SQLException e) {	
 			e.printStackTrace();
 		}
 	}
 	
 	
-	void registerTeam() {
-		// TODO
+	void registerNewTeam() {
+		
+		Team team = new Team();
+		
+		String name   = kb.readString("enter team name: \n", "Invalid name, try again: \n");
+		int league_id = kb.readInteger("enter leagueID: \n", "Invalid leagueID, try again: \n");
+		
+		team.setName(name);
+		team.setLeagueID(league_id);
+		
+		try {
+			
+			connection = connectDB();
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO TEAM (name, league_id) VALUES (?,?)");
+			ps.setString(1, name.toUpperCase());
+			ps.setInt(2, league_id);
+			ps.execute();
+			ps.close();
+			
+			System.out.println("Team has been registerd");
+			connection.close();		
+			
+		} catch (SQLException e) {	
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
-	void registerLeague() {
+	void registerNewLeague() {
+		
+		League league = new League();
+		
+		String name = kb.readString("enter league name: ", "Invalid name");
+		
+		league.setLeagueName(name);
+		
+		try {
+			
+			connection = connectDB();
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO LEAGUE (name) VALUES (?)");
+			ps.setString(1, name);
+			ps.execute();
+			ps.close();
+			
+			System.out.println("league registered");
+			connection.close();
+				
+		} catch (SQLException e) {	
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	/*
+	 *  the below methods will produce live updates on the data currently loaded to maintain consistancy
+	 *  bewteen program and database data
+	 */
+	
+	private static void updatePlayer(Player player) {
 		//TODO
 	}
 	
-	
-	void removePlayer(int playerID, String name) {
+	private static void updateTeam(Team team) {
 		//TODO
 	}
 	
-	
-	void removeTeam(int teamID) {
+	private static void updateLeague(League league) {
 		//TODO
 	}
 	
+	private static void removePlayer(int playerID, String name) {
+		//TODO
+	}
 	
-	void removeLeague(int leagueID) {
+	private static void removeTeam(int teamID) {
+		//TODO
+	}
+	
+	private static void removeLeague(int leagueID) {
 		//TODO
 	}
 	
