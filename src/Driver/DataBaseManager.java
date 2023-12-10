@@ -18,11 +18,11 @@ import data_classes.Team;
 public class DatabaseManager {
 	
 	// LeagueManagementSystem fields
-	private List<Player> players;
-	private List<Team>   teams;
-	private List<League> leagues;
+	private static List<Player> players;
+	private static List<Team>   teams;
+	private static List<League> leagues;
 	
-	Keyboard kb;
+	private Keyboard kb;
 	Connection connection;
 	
 	// constructor
@@ -66,16 +66,32 @@ public class DatabaseManager {
 	}
 	
 	
+	// method to continuously refresh data lists every 5 seconds
+	public void CDCListener() {
+		
+		while(true) {
+			
+			try {
+				retrieveData();
+				Thread.sleep(5000);
+			}
+			catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	// method to create database connection
 	Connection connectDB() {
 		
 		Connection con = null;
 		
 		try {
+			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_league_db","root", "Ronaldo");
-			System.out.println("database connection success..\n");
-			
+
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -102,8 +118,9 @@ public class DatabaseManager {
 			
 			players.add(player);
 		}
-		stmt.close();
 		rs.close();
+		stmt.close();
+		
 		return players;
 	}
 	
@@ -129,8 +146,9 @@ public class DatabaseManager {
 			}
 			teams.add(team);
 		}
-		stmt.close();
 		rs.close();
+		stmt.close();
+		
 		return teams;	
 	}
 
@@ -155,8 +173,9 @@ public class DatabaseManager {
 			}
 			leagues.add(league);
 		}
-		stmt.close();
 		rs.close();
+		stmt.close();
+		
 		return leagues;
 	}
 	
@@ -252,13 +271,6 @@ public class DatabaseManager {
 		}
 		
 	}
-	
-	
-	
-	/*
-	 *  the below methods will produce live updates on the data currently loaded to maintain consistancy
-	 *  bewteen program and database data
-	 */
 	
 	private static void updatePlayer(Player player) {
 		//TODO

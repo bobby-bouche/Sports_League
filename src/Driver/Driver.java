@@ -1,6 +1,5 @@
 package Driver;
 
-import java.util.List;
 import InputValidation.Keyboard;
 import data_classes.League;
 import data_classes.Player;
@@ -10,11 +9,7 @@ public class Driver {
 	
 	// Driver fields
 	private static DatabaseManager dbManager;
-	private Keyboard kb;
-	
-	private static List<League> leagues;
-	private static List<Team>   teams;
-	private static List<Player> players;
+	private static Keyboard kb;
 	
 	
 	// constructor
@@ -25,22 +20,8 @@ public class Driver {
 	}
 	
 
-	// method to load data from database and populate static class lists
-	void loadDatabase(){
-	
-		dbManager.retrieveData();
-		leagues = dbManager.getLeagues();
-		teams   = dbManager.getTeams();
-		players = dbManager.getPlayers();
-	}
-	
-	
-	
-	/*
-	 *  The following section contains the methods for the text based system
-	 */
-	// method to launch text management system
-	public void runTextBasedSystem() {
+	// method to launch management system
+	public void runSystem() {
 		
 		int choice;
 		boolean proceed  = true;
@@ -107,7 +88,7 @@ public class Driver {
 					String error  = "player does not exists in database";
 					strInput = kb.readString(prompt, error);	
 				
-					for(Player p : players) {
+					for(Player p : dbManager.getPlayers()) {
 						if(strInput.equalsIgnoreCase(p.getLname())) {
 							System.out.println(p.toString() + "\n");
 							proceed = false;
@@ -121,7 +102,7 @@ public class Driver {
 					String teamErrorMsg  = "team does not exist in database";
 					strInput = kb.readString(teamPromptMsg, teamErrorMsg);
 					
-					for(Team t : teams) {
+					for(Team t : dbManager.getTeams()) {
 						if(strInput.equalsIgnoreCase(t.getName())) {
 							System.out.println(t.toString() + "\n");
 							proceed = false;
@@ -134,7 +115,7 @@ public class Driver {
 					String leaguePromptMsg = "Enter league name: ";
 					String leagueErrorMsg  = "league does not exist in database";
 					strInput = kb.readString(leaguePromptMsg, leagueErrorMsg);
-					for(League l : leagues) {
+					for(League l : dbManager.getLeagues()) {
 						if(strInput.equalsIgnoreCase(l.getLeagueName())) {
 							System.out.println(l.getLeagueRoster());
 							proceed = false;
@@ -155,11 +136,11 @@ public class Driver {
 	}
 	
 	
+	// method to run registration menu
 	void runRegistrationMenu() {
 		
 		int choice;
 		boolean proceed = true;
-		String strInput;
 		
 		String promptMsg = "Make a selection:\n";
 		String errorMsg  = "Invalid entry, enter an integer value in the range (1-7)\n";
@@ -182,12 +163,15 @@ public class Driver {
 			
 				case 1:
 					dbManager.registerNewPlayer();
+					break;
 			
 				case 2:
 					dbManager.registerNewTeam();
+					break;
 					
 				case 3:
 					dbManager.registerNewLeague();
+					break;
 					
 				case 4:
 					
@@ -209,17 +193,7 @@ public class Driver {
 			}
 		}	
 	}
-	
-	
-	/*
-	 *  The following section contains the methods for the GUI based system
-	 */
-	// method to launch GUI management system
-	void runGUIBasedSystem() {
-		
-		// TODO this method will run the frames needed for a GUI based system	
-	}
-	
+
 	
 	// main method
 	public static void main(String[] args) {
@@ -228,11 +202,15 @@ public class Driver {
 		driver = new Driver();
 			
 		try {
-		
-	     	driver.loadDatabase();
-			driver.runTextBasedSystem();
-	     	//System.out.println(players);
-	
+
+	     	dbManager.retrieveData();
+	     	
+	     	// runs a seperate Thread parallel to main thread to continuously sync program and DB data.
+			Thread listenerThread = new Thread(() -> dbManager.CDCListener());
+			listenerThread.start();
+			
+			driver.runSystem();
+
 		}
 		catch(NullPointerException e) {
 			System.out.println(e);	
