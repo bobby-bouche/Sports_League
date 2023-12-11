@@ -100,7 +100,7 @@ public class DatabaseManager {
 	
 	
 	// method to retrieve player data from database
-	private static List<Player> retrievePlayers(Connection con) throws SQLException {
+	public static List<Player> retrievePlayers(Connection con) throws SQLException {
 		
 		List<Player> players = new ArrayList<>();
 		Statement stmt = con.createStatement();
@@ -181,7 +181,7 @@ public class DatabaseManager {
 	
 	
 	// method to add new player to database
-	void registerNewPlayer() {
+	public void registerNewPlayer() {
 		
 		Player player = new Player();
 		
@@ -206,9 +206,9 @@ public class DatabaseManager {
 			ps1.setInt(3, age);
 			ps1.setString(4, position.toUpperCase());
 			ps1.setInt(5, teamID);
+			
 			ps1.execute();
 			ps1.close();
-			
 			System.out.println("player " + player.getLname() + " is now registered");
 			connection.close();
 	
@@ -217,8 +217,53 @@ public class DatabaseManager {
 		}
 	}
 	
+	public void updatePlayer(Player player) {
+		try {
+			
+			connection = connectDB();
+			PreparedStatement ps = connection.prepareStatement("UPDATE PLAYER SET first_name = ?, last_name = ?, age = ?, position = ?, team_id = ? WHERE player_id = ?");
+			
+			ps.setString(1, player.getFname());
+			ps.setString(2, player.getLname());
+			ps.setInt(3, player.getAge());
+			ps.setString(4, player.getPosition());
+			ps.setInt(5, player.getTeamID());
+			ps.setInt(6, player.getPlayerID());
+			
+			ps.executeUpdate();
+			ps.close();
+			connection.close();
+			
+			System.out.println("Player information updated successfully.");
+			
+		} catch (SQLException e) {	
+			e.printStackTrace();
+		}
+		
+	}
 	
-	void registerNewTeam() {
+	public void removePlayer(Player player) {
+		
+		try {
+			
+			connection = connectDB();
+			PreparedStatement ps = connection.prepareStatement("DELETE FROM PLAYER WHERE player_id = ?");
+			
+			ps.setInt(1, player.getPlayerID());
+			
+			ps.executeUpdate();
+			ps.close();
+			connection.close();
+			
+			System.out.println("Player deleted successfully.");
+			
+		} catch (SQLException e) {	
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void registerNewTeam() {
 		
 		Team team = new Team();
 		
@@ -247,7 +292,7 @@ public class DatabaseManager {
 	}
 	
 	
-	void registerNewLeague() {
+	public void registerNewLeague() {
 		
 		League league = new League();
 		
@@ -271,29 +316,22 @@ public class DatabaseManager {
 		}
 		
 	}
-	
-	private static void updatePlayer(Player player) {
-		//TODO
-	}
-	
-	private static void updateTeam(Team team) {
-		//TODO
-	}
-	
-	private static void updateLeague(League league) {
-		//TODO
-	}
-	
-	private static void removePlayer(int playerID, String name) {
-		//TODO
-	}
-	
-	private static void removeTeam(int teamID) {
-		//TODO
-	}
-	
-	private static void removeLeague(int leagueID) {
-		//TODO
-	}
+
+		
+//	public void updateTeam(Team team) {
+//		//TODO
+//	}
+//	
+//	public void updateLeague(League league) {
+//		//TODO
+//	}
+//	
+//	public  void removeTeam(int teamID) {
+//		//TODO
+//	}
+//	
+//	public void removeLeague(int leagueID) {
+//		//TODO
+//	}
 	
 }

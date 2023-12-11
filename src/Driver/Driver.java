@@ -152,10 +152,9 @@ public class Driver {
 		            + "1. Register Player\n"
 		            + "2. Register Team\n"
 		            + "3. Register League\n"
-		            + "4. Remove Player\n"
-		            + "5. Remove Team\n"
-		            + "6. Remove League\n"
-		            + "7. Back\n");
+		            + "4. Transfer Player\n"
+		            + "5. Remove Player\n"
+		            + "6. Back\n");
 			
 			choice = kb.readInteger(promptMsg, errorMsg, 1, 7);
 			
@@ -174,22 +173,48 @@ public class Driver {
 					break;
 					
 				case 4:
+					int playerID;	
+					String prompt = "enter playerID: ";
+					String error  = "Invalid playerID";
 					
+					playerID = kb.readInteger(prompt, error);
+					for(Player p : dbManager.getPlayers()) {
+						if(playerID == p.getPlayerID()) {
+							
+							String prompt2 = "enter new teamID: ";
+							String error2  = "Invalid teamID";
+							
+							int updatedTeamID = kb.readInteger(prompt2, error2);
+							p.setTeamID(updatedTeamID);
+							dbManager.updatePlayer(p);
+							System.out.println("Munya");
+							break;
+						}
+					}
+					break;
 					
 				case 5:
 					
+					int deletePlayerID;
+					String deletePrompt = "enter playerID: ";
+					String deleteError  = "Invalid playerID";
+					
+					deletePlayerID = kb.readInteger(deletePrompt, deleteError);
+					for(Player p : dbManager.getPlayers()) {
+						if(deletePlayerID == p.getPlayerID()) {
+				
+							dbManager.removePlayer(p);
+							System.out.println("Munya");
+						}
+					}
+					break;
 					
 				case 6:
-					
-					
-				case 7:
 					proceed = false;
 					break;
 					
-					
 				default:
-					
-				
+					System.out.println("Invalid entry");
 			}
 		}	
 	}

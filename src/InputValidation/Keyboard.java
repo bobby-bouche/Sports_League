@@ -2,8 +2,6 @@ package InputValidation;
 
 import java.util.Scanner;
 
-import data_classes.Player;
-
 public class Keyboard {
 	
 	// Keyboard fields
@@ -28,7 +26,6 @@ public class Keyboard {
 		while(valid == false) {
 			
 			System.out.println(promptMsg);
-			//input.nextLine();
 			strInput = input.nextLine();
 			
 			try {
@@ -56,7 +53,6 @@ public class Keyboard {
 		while(valid == false) {
 			
 			System.out.println(promptMsg);
-			//input.nextLine();
 			strInput = input.nextLine();
 			
 			try {
@@ -83,7 +79,7 @@ public class Keyboard {
 			strInput = input.nextLine();
 			
 			try {
-				if(!(strInput.equals(null)) && strInput.matches("^[a-z A-Z 0-9]*$")) {
+				if(!(strInput == null) && !(strInput.isEmpty()) && strInput.matches("^[a-z A-Z 0-9]*$")) {
 					valid = true;
 				}
 				else {
@@ -97,6 +93,5 @@ public class Keyboard {
 		return strInput;
 	}
 	
-
 
 }
